@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url:  jdbc:mysql://mysql:3306/families?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=yes&characterEncoding=utf8
+    username: student
+    password: student
+  jpa:
+    hibernate.ddl-auto: update
+#    show-sql: true
+#    generate-ddl: true
+#logging:
+#  level:
+#    org:
+#      springframework: DEBUG

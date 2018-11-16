@@ -1,0 +1,50 @@
+<form [formGroup]="childrenForm">
+
+  <div class="form-group" formArrayName="children">
+
+    <h1 class="jumbotron text-center">Fill form to add children to family</h1>
+
+    <div *ngFor="let child of childrenForm.controls.children.controls; let i=index">
+      <div class="form-group border border-success" style="padding: 10px;" formGroupName="{{i}}">
+        <h3>{{i+1}}. Child</h3>
+        <div class="form-group">
+          <label for="childFirstName">First name</label>
+          <input type="text" class="form-control" name="firstName" id="childFirstName" placeholder="Child first name"
+            formControlName="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="childLastName">Last name</label>
+          <input type="text" class="form-control" name="lastName" id="childLastName" placeholder="Child last name"
+            formControlName="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="childPesel">PESEL</label>
+          <input type="text" class="form-control" name="pesel" id="childPesel" pattern="[0-9]{11}" title="Enter 11 numbers"
+            placeholder="PESEL" formControlName="pesel" required>
+        </div>
+        <div class="form-group">
+          <label for="childBirthDate">Birth date</label>
+          <input type="date" class="form-control" name="birthDate" id="childBirthDate" formControlName="birthDate">
+        </div>
+        <div class="form-group">
+          <label for="childSex">Sex</label>
+          <input type="text" class="form-control" name="sex" id="childSex" placeholder="sex" formControlName="sex">
+        </div>
+      </div>
+    </div>
+    <!-- <div *ngIf="(firstName.dirty || lastName.dirty || pesel.dirty || birthDate.dirty)" style="color: red">
+    <p *ngIf="firstName.errors.required">First name is required</p>
+    <p *ngIf="lastName.errors.required">Last name is required</p>
+    <p *ngIf="birthDate.errors.required">Birth date is required</p> 
+    <p *ngIf="sex.errors.required">Sex is required</p>
+    <p *ngIf="(pesel.errors.required || pesel.errors.maxlength)">11 PESEL digits are required</p>
+  </div> -->
+    <div class="text-center">
+      Add more children <img [src]="addChildPath" alt="plus img" id="add" (click)="addFormChild()">
+      <img [src]="removeChildPath" alt="minus img" id="add" (click)="removeChild()">
+    </div>
+    <div class="text-center" style="margin-top: 10px;">
+      <button type="button" class="btn btn-success btn-lg" [disabled]="!childrenForm.valid" (click)="onSubmit()">Submit</button>
+    </div>
+  </div>
+</form>

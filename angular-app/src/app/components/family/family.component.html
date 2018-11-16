@@ -1,0 +1,61 @@
+<h1 class="jumbotron text-center">Choosen family</h1>
+<div>
+    <h1 class="text-center">Family</h1>
+    <div>
+        <h2>Father</h2>
+        <div id="element" class="container">
+            <div class="row">
+                <div class="col">
+                    <label for="firstName"><b>First name</b></label>
+                    <p name="firstName">{{father.firstName}}</p>
+                </div>
+                <div class="col">
+                    <label for="lastName"><b>Last name</b></label>
+                    <p name="lastName">{{father.lastName}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="pesel"><b>PESEL</b></label>
+                    <p name="pesel">{{father.pesel}}</p>
+                </div>
+                <div class="col">
+                    <label for="birthDate"><b>Birth date</b></label>
+                    <p name="birthDate">{{father.birthDate}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Children</h2>
+        <div *ngFor="let child of children; let i=index" id="element" class="container">
+            <h3>{{i+1}}. Child</h3>
+            <div class="row">
+                <div class="col">
+                    <label for="firstName"><b>First name</b></label>
+                    <p name="firstName">{{child.firstName}}</p>
+                </div>
+                <div class="col">
+                    <label for="lastName"><b>Last name</b></label>
+                    <p name="lastName">{{child.lastName}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="pesel"><b>PESEL</b></label>
+                    <p name="pesel">{{child.pesel}}</p>
+                </div>
+                <div class="col">
+                    <label for="birthDate"><b>Birth date</b></label>
+                    <p name="birthDate">{{child.birthDate}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="sex"><b>Sex</b></label>
+                    <p name="sex">{{child.sex}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

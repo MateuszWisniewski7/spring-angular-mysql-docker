@@ -1,0 +1,32 @@
+<h1 class="jumbotron text-center">Fill form to add father to family</h1>
+<form [formGroup]="fatherForm">
+  <div class="form-group">
+    <label for="fatherFirstName">Fahter's first name</label>
+    <input type="text" class="form-control" name="firstName" id="fatherFirstName" placeholder="Father first name"
+      formContolName="firstName">
+  </div>
+  <div class="form-group">
+    <label for="fatherLastName">Father's last name</label>
+    <input type="text" class="form-control" name="lastName" id="fatherLastName" placeholder="Father last name"
+      formContolName="lastName">
+  </div>
+  <div class="form-group">
+    <label for="fatherPesel">PESEL</label>
+    <input type="text" class="form-control" name="pesel" id="fatherPesel" title="Enter 11 numbers"
+      placeholder="PESEL" formContolName="pesel">
+  </div>
+  <div class="form-group">
+    <label for="FatherBirthDate">Father's birth date</label>
+    <input type="date" class="form-control" name="birthDate" id="FatherBirthDate" formContolName="birthDate">
+  </div>
+  <!-- <div *ngIf="(firstName.dirty || lastName.dirty || pesel.dirty || birthDate.dirty)" style="color: red">
+    <p *ngIf="firstName.errors.required">First name is required</p>
+    <p *ngIf="lastName.errors.required">Last name is required</p>
+    <p *ngIf="birthDate.errors.required">Birth date is required</p>
+    <p *ngIf="(pesel.errors.required || pesel.errors.maxlength)">11 PESEL digits are required</p>
+  </div> -->
+  <div class="text-center" style="margin-top: 10px;">
+    <!-- problem with submit button cut disabled to test -->
+    <button type="button" class="btn btn-success btn-lg" routerLink="/addChildren" [disabled]="!fatherForm.valid" (click)="onSubmit()">Submit</button>
+  </div>
+</form>

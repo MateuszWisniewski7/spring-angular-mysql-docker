@@ -1,0 +1,51 @@
+<h1 class="jumbotron text-center">Fill form to find family</h1>
+<form>
+  <div class="form-group">
+    <label for="childFirstName">Child first name</label>
+    <input type="text" class="form-control" name="firstName" id="childFirstName" placeholder="Child first name"
+      [(ngModel)]="child.firstName">
+  </div>
+  <div class="form-group">
+    <label for="childLastName">Child last name</label>
+    <input type="text" class="form-control" name="lastName" id="childLastName" placeholder="Child last name"
+      [(ngModel)]="child.lastName">
+  </div>
+  <div class="form-group">
+    <label for="childPesel">PESEL</label>
+    <input type="text" class="form-control" name="pesel" id="childPesel" pattern="[0-9]{11}" title="Enter 11 numbers"
+      placeholder="PESEL" [(ngModel)]="child.pesel">
+  </div>
+  <div class="form-group">
+    <label for="childBirthDate">Birth date</label>
+    <input type="date" class="form-control" name="birthDate" id="childBirthDate" [(ngModel)]="child.birthDate">
+  </div>
+  <div class="form-group">
+    <label for="childSex">Sex</label>
+    <input type="text" class="form-control" name="sex" id="childSex" placeholder="sex" [(ngModel)]="child.sex">
+  </div>
+  <div class="text-center" style="margin-top: 10px;">
+    <button type="submit" class="btn btn-success btn-lg" (click)="onSubmit()">Search</button>
+  </div>
+
+  <div class="border border-success animate-show-hide" id="results" *ngIf="fathers.length">
+    <h3 class="text-center">Results (Fathers)</h3>
+    <table class="table mx-auto text-center table-hover">
+      <thead class="thead-success">
+        <tr class="text-center">
+          <th>First name</th>
+          <th>Last name</th>
+          <th>PESEL</th>
+          <th>Birth date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let father of fathers;" routerLink="/family" (click)="choosenFamily($event)" class={{father.family.id}}>
+          <td class={{father.family.id}}>{{father.firstName}}</td>
+          <td class={{father.family.id}}>{{father.lastName}}</td>
+          <td class={{father.family.id}}>{{father.pesel}}</td>
+          <td class={{father.family.id}}>{{father.birthDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>

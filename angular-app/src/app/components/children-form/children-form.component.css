@@ -1,0 +1,15 @@
+#add{
+  border-style: outset;
+}
+
+#add:hover{
+  filter: brightness(75%);
+}
+
+#add:active{
+  border-style: inset;
+}
+
+.border{
+  border-width: 5px !important;
+}
